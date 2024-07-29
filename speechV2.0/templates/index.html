@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ZH" class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="../static/image/icon.png">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="中文智能语音体验系统">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="语音识别、语音合成、声纹识别">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>中文智能语音体验系统</title>
+
+
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+	<link rel="stylesheet" href="../static/css/app.v2.css">
+
+	<link rel="stylesheet" href="../static/css/bootstrap.css">
+	<link rel="stylesheet" href="../static/css/bootstrap-select.min.css">
+
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/gw-header.css">
+	<link rel="stylesheet" href="../static/css/gw-product.css">
+
+	<link rel="stylesheet" href="../static/css/jquery.DonutWidget.min.css">
+	<link rel="stylesheet" href="../static/css/jquerysctipttop.css">
+	<link rel="stylesheet" href="../static/css/linearicons.css">
+	<link rel="stylesheet" href="../static/css/magnific-popup.css">
+	<link rel="stylesheet" href="../static/css/main.css">
+
+	<link rel="stylesheet" href="../static/css/toast.css">
+	<link rel="stylesheet" href="../static/css/ttsdemo.css">
+	<link rel="stylesheet" href="../static/css/nice-select.css">
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+	<link rel="stylesheet" href="../static/css/owl.carousel.css">
+	<link rel="stylesheet" href="../static/css/asrdemo.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/bootstrap-slider.min.css">
+
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+	<!-- Start Banner Area -->
+	<section class="home-banner-area relative" style="height: 350px">
+		<div class="container">
+			<div
+				style="height: 520px;width: 100%;display: flex;flex-direction: row;align-items: center;justify-content: center;">
+				<div class="banner-content col-lg-8 col-md-12">
+					<h1 class="wow fadeIn" data-wow-duration="4s" style="font-size: 55px !important;">智能语音识别DEMO</h1>
+					<br>
+					<p class="text-white" style="font-size: 25px">
+						包含语音识别、声纹注册、说话人识别三大服务
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="feature-area">
+		<div class="container">
+			<div class="feature-inner row">
+				<div class="col-lg-12 col-md-12">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								自动语音识别
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="tts-container">
+								<div id="ttsinputMod" class="column fl">
+									<!--                    修改部分                           -->
+									<div class="box">
+										<div class="left">
+											<div class="title">语音输入</div>
+											<div class="left-box">
+												<div class="language-label">
+													<div>类别：</div>
+													<div data-value="zh-CHS" class="language-select language-span language-span-list">
+														中文普通话
+													</div>
+													<div data-value="en" class="language-span language-span-list">英文
+													</div>
+												</div>
+												<div id="timeBox" class="time-box" style="display: none">
+													<span class="start-taste-line">
+														<hr class="hr1" />
+														<hr class="hr2" />
+														<hr class="hr3" />
+														<hr class="hr4" />
+														<hr class="hr5" />
+														<hr class="hr6" />
+														<hr class="hr7" />
+														<hr class="hr8" />
+														<hr class="hr9" />
+													</span>
+													<span class="total-time">
+														<span class="used-time">00: <span id="usedTime"></span></span>
+														<span>/ 01: 00</span>
+													</span>
+												</div>
+												<div class="language-image-box">
+													<div class="taste-content">
+														<button id="record" class="taste-button ready-button"><b id="record_status"
+																style="background-image: url('../static/image/ic_microphone_24px.png');"></b><span
+																id="record_text">录 音</span></button>
+
+
+														<span id="time" style="width: 20px;display: inline-block"></span>
+
+													</div>
+													<div class="language-p">
+														<p>
+															点击“开始识别”开始录音，请对我说你想说的话，我可以识别你说的内容哦~
+														</p>
+														<p>请允许浏览器获取麦克风权限</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="right">
+											<div class="title">识别结果</div>
+											<div class="right-box">
+												<div id="inputText" class="text" dir="ltr" tabindex="1" wrap="SOFT" name="i">欢迎体验语音识别功能。</div>
+												<div class="btn-bottom">
+													<audio id="audioPlayer" class="asr_demo_audio" autoplay controls></audio>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-12 col-md-12">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								声纹识别之【说话人识别】
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<h4>1、声纹注册</h4>
+									<p class="lead">输入姓名后点击开始注册声纹按钮并通过录制声音且不要低于10S</p>
+									<div class="input-group">
+										<input type="text" class="form-control" id="printName" placeholder="请填写注册人名字">
+									</div>
+									<br>
+									<button type="button" class="btn btn-info" onclick="speechRecorder()">开始注册声纹</button>
+									<br>
+									<br>
+									<h4>2、声纹识别</h4>
+									<p class="lead">个人录音后与声纹库中进行比对后返回识别结果。</p>
+									<button type="button" class="btn btn-success" onclick="recognizeSpeech()">说话人识别</button>
+									<p class="lead">请点击识别按钮后开始录制语音，时长5S左右。</p>
+
+								</div><!-- /.col-lg-6 -->
+								<div class="col-lg-6">
+									<div class="alert alert-info" style="height: 300px">
+										<div id="recogName1">
+											<p id="recogName"></p>
+										</div>
+									</div>
+								</div><!-- /.col-lg-6 -->
+							</div><!-- /.row -->
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- Start Footer Area -->
+	<footer class="footer-area section-gap">
+		<div class="container">
+			<div class="footer-bottom row align-items-center">
+				<p class="footer-text m-0 col-lg-5 col-md-5">
+					Author：王中凯 罗奕佳 冯浩军
+					<br>
+					Date：2024.6
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Area -->
+	<!-- ####################### Start Scroll to Top Area ####################### -->
+	<!-- <div id="back-top">
+		<a title="Go to Top" href="#"></a>
+	</div> -->
+	<div class="actGotop"><a href="javascript:;" title="返回顶部"></a></div>
+
+	<!-- ####################### End Scroll to Top Area ####################### -->
+
+	<script src="../static/js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="../static/js/popper.min.js"></script>
+	<script src="../static/js/vendor/bootstrap.min.js"></script>
+	<!---<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>--->
+	<script src="../static/js/easing.min.js"></script>
+	<script src="../static/js/hoverIntent.js"></script>
+	<script src="../static/js/superfish.min.js"></script>
+	<script src="../static/js/jquery.ajaxchimp.min.js"></script>
+	<script src="../static/js/jquery.magnific-popup.min.js"></script>
+	<script src="../static/js/owl.carousel.min.js"></script>
+	<script src="../static/js/owl-carousel-thumb.min.js"></script>
+	<script src="../static/js/jquery.sticky.js"></script>
+	<script src="../static/js/jquery.nice-select.min.js"></script>
+	<script src="../static/js/parallax.min.js"></script>
+	<script src="../static/js/waypoints.min.js"></script>
+	<script src="../static/js/wow.min.js"></script>
+	<script src="../static/js/jquery.counterup.min.js"></script>
+	<script src="../static/js/mail-script.js"></script>
+	<!-- <script src="{{ url_for('static', filename='js/main.js') }}"></script> -->
+	<script src="../static//js/main.js"></script>
+	<script src="../static/layer/layer.js"></script>
+	<script src="../static/js/bootstrap-slider.min.js"></script>
+	<script src="../static/js/HZRecorder.js"></script>
+	<script src="../static/js/ttsdemo.js"></script>
+	<script src="../static/js/toast.js"></script>
+	<script src="../static/js/jquery.jplayer.min.js"></script>
+
+
+
+	<!-- 为录音按钮绑定方法 -->
+	<script type="text/javascript">
+
+
+		// var slider_speed = new Slider("#ex1",{tooltip: 'always'});
+		// var slider_tone  = new Slider("#ex2",{tooltip: 'always'});
+		// var slider_voice = new Slider("#ex3",{tooltip: 'always'});
+		var recorder;
+		function get(id) {
+			return document.getElementById(id);
+		}
+
+		var elButton = get("record"),
+			elTime = get("time");
+		audio = document.querySelector('audio');
+
+
+		var isStart = true, time = 0, timer;
+
+
+		$('.actGotop').click(function () {
+			$('html,body').animate({ scrollTop: '0px' }, 800);
+		});
+
+		//倒计时
+		function updateTimer() {
+			// $('#record_text').text("结束" + (--time) + "s");
+			let myTime = time + 1;
+			if (myTime >= 59) {
+				return;
+			}
+			time++;
+			$('#usedTime').text(myTime);
+
+			if ((myTime) == 59) {
+				elButton.click();
+			}
+		}
+		//更新按钮
+		function updateButton() {
+			isStart = !isStart;
+			time
+			//        var val = isStart ? "开始录音" : "停止录音";
+
+
+			elTime.innerHTML = "";
+			if (isStart) {
+				$('#record_status').css("background", "url(../static/image/ic_microphone_24px.png)");
+				$('#record_text').text("录 音");
+			} else {
+				$('#record_status').css("background", "url(../static/image/ic_stop_24px.png)");
+				$('#record_text').text("结束");
+				$('#usedTime').text('0');
+
+			}
+		}
+		elButton.onclick = function () {
+			if (isStart) {
+				time = 0;
+				//开始录音
+				updateButton();
+				timer = setInterval(updateTimer, 1000);
+				$('#timeBox').css("display", "flex")
+
+				recorder.start();
+			} else {
+				//停止录音
+				recorder && recorder.stop();
+				if (timer) clearInterval(timer);
+				$('#timeBox').css("display", "none")
+				updateButton();
+				uploadAudio();
+				recorder.play(audio);
+				recorder && recorder.clear();
+			}
+		};
+
+		window.onload = function init() {
+			HZRecorder.get(function (rec) {
+				recorder = rec;
+			});
+		};
+
+		// 点击切换中文英文
+		$('.language-label .language-span').click(function () {
+			console.log($('.language-span'), 'ssssssssssssssssssssss')
+			$('.language-label .language-span').removeClass('language-select');
+
+			// 给被点击的li添加类
+			$(this).addClass('language-select');
+		});
+
+
+
+		function uploadAudio() {
+			var lang = $('.language-select').data('value');
+			recorder.upload(function (data) {
+				var fd = new FormData();
+				fd.append("audioData", data);
+				var url = "";
+				jQuery.ajax({
+					url: "https://aidemo.youdao.com/asr?lang=" + lang,
+					type: 'POST',
+					async: false,
+					data: fd,
+					// 告诉jQuery不要去处理发送的数据
+					processData: false,
+					// 告诉jQuery不要去设置Content-Type请求头
+					contentType: false,
+					success: function (res) {
+						var result = eval("(" + res + ")");
+						if (result.errorCode == "0") {
+							$("#inputText").html("");
+							$("#inputText").html(result.result);
+							$("#inputText").css("color", "#222");
+						} else if (result.errorCode == 411 || result.errorCode == 410) {
+							layer.msg('您的访问过于频繁，请稍后访问', {
+								icon: 2,
+								shade: 0.01,
+								time: 2000 // 2秒后自动关闭
+							});
+							// Toast.toast("您的访问过于频繁，请稍后访问");
+						} else if (result.errorCode == 413) {
+							layer.msg('您今日的访问已达到上限', {
+								icon: 2,
+								shade: 0.01,
+								time: 2000 // 2秒后自动关闭
+							});
+							Toast.toast("您今日的访问已达到上限");
+						} else {
+							// 在倒计时结束后执行成功逻辑
+							layer.msg('语音识别失败', {
+								icon: 2,
+								shade: 0.01,
+								time: 2000 // 2秒后自动关闭
+							});
+							// Toast.toast("语音识别失败")
+						}
+					},
+					error: function (error) {
+						Toast.toast("上传失败");
+					}
+				});
+			});
+		}
+
+
+		// 注册声纹
+		function speechRecorder() {
+			var printName = get("printName").value;
+			if (!printName) {
+				alert("请先输入注册人的名字");
+				return;
+			}
+			console.log("开始注册……")
+			alert("注意！录音时长为12秒！")
+
+			var countdownTime = 12; // 倒计时12秒
+			var countdownInterval;
+			var msgIndex;
+
+			$.ajax(
+				{
+					type: "POST",
+					url: "/speech",
+					data: "printNames=" + printName,
+					dataType: "json",
+					error: function (request) {
+						return;
+					},
+					beforeSend: function (XMLHttpRequest) {
+						$(".text-white").css('display', 'none');
+						$("#ASR-Reslut").css('display', 'none');
+						layer.msg('录音中…… (' + countdownTime + '秒)', {
+							icon: 16,
+							shade: 0.01,
+							time: false // 防止layer自动关闭
+						});
+						// 启动倒计时
+						countdownInterval = setInterval(function () {
+							countdownTime--;
+							// 更新提示信息中的倒计时
+							layer.msg('录音中…… (' + countdownTime + '秒)', {
+								icon: 16,
+								shade: 0.01,
+								time: false // 防止layer自动关闭
+							});
+
+							if (countdownTime <= 0) {
+								// 倒计时结束，停止录音
+								clearInterval(countdownInterval);
+								layer.close(msgIndex); // 关闭提示层
+
+								// 停止录音逻辑
+								stopRecording();
+
+								// 在倒计时结束后执行成功逻辑
+								layer.msg('录音结束', {
+									icon: 1,
+									shade: 0.01,
+									time: 2000 // 2秒后自动关闭
+								});
+							}
+						}, 1000);
+					},
+					success: function (res) {
+						printName = '';
+
+						// 此处的逻辑将在录音完成后处理
+						setTimeout(function () {
+							layer.closeAll('loading');
+						}, 1000);
+						return;
+					}
+				});
+
+			// 定义停止录音的逻辑
+			function stopRecording() {
+				$.ajax(
+					{
+						type: "POST",
+						url: "/stopSpeech",
+						error: function (request) {
+							return;
+						},
+						beforeSend: function (XMLHttpRequest) {
+							console.log("录音已停止");
+							// 关闭提示层
+							if (msgIndex !== undefined) {
+								layer.close(msgIndex);
+							}
+						},
+						success: function (res) {
+							//此处演示关闭
+							setTimeout(function () {
+								layer.closeAll('loading');
+							}, 1000);
+							// 显示录音结束提示
+							layer.msg('录音结束', {
+								icon: 1,
+								shade: 0.01,
+								time: 2000 // 2秒后自动关闭
+							});
+						}
+					})
+
+
+			}
+		}
+
+
+
+
+		function recognizeSpeech() {
+			alert("请录制语音5~10s左右！")
+			var countTime = 0; // 正计时
+			var countInterval;
+			var msgIndex;
+			var stop = 1;
+			$.ajax(
+				{
+					type: "POST",
+					url: "/recognize",
+					dataType: "text",
+					error: function (request) {
+						return;
+					},
+					beforeSend: function (XMLHttpRequest) {
+						layer.msg('开始录音(点击退出)…… (' + countTime + '秒)', {
+							icon: 16,
+							shade: 0.01,
+							time: false // 防止layer自动关闭
+						});
+
+						// 启动计时
+						countInterval = setInterval(function () {
+							countTime++;
+							// 更新提示信息中的倒计时
+							layer.msg('开始录音(点击退出)…… (' + countTime + '秒)', {
+								icon: 16,
+								shade: 0.01,
+								time: false // 防止layer自动关闭
+							});
+
+							$(document).on('click', function () {
+								if (stop === 1) {
+									// 倒计时结束，停止录音
+									clearInterval(countInterval);
+									layer.close(msgIndex); // 关闭提示层
+
+									// 停止录音逻辑
+									stopRecording();
+
+									// 在倒计时结束后执行成功逻辑
+									layer.msg('录音结束', {
+										icon: 1,
+										shade: 0.01,
+										time: 2000 // 2秒后自动关闭
+									});
+									stop = 0;
+								}
+
+							});
+						}, 1000);
+
+					},
+					success: function (res) {
+						stop = 0;
+						clearInterval(countInterval);
+						layer.close(msgIndex); // 关闭提示层
+
+						// 停止录音逻辑
+						stopRecording();
+
+						layer.msg('正在识别……', {
+							icon: 16,
+							shade: 0.01,
+						});
+						// $(".text-white").css('display','block');
+						// $("#ASR-Reslut").css('display','block'); 
+						// var resId = document.getElementById("ASR-Reslut");
+						// $("#ASR-Reslut").text(res)
+						// console.log(res)
+
+						// 解析 JSON 字符串为对象
+						var resObj = JSON.parse(res);
+						// 提取 result 字段的值
+						var resultValue = resObj.result;
+						// 更新 HTML 内容
+						$("#recogName").hide().html("识别成功！结果是 : <br><br><span class='result-value'>" + resultValue + "</span>").fadeIn(2500);
+
+					}
+				});
+			function stopRecording() {
+				$.ajax(
+					{
+						type: "POST",
+						url: "/stopSpeech",
+						error: function (request) {
+							return;
+						},
+						beforeSend: function (XMLHttpRequest) {
+							console.log("录音已停止");
+							// 关闭提示层
+							if (msgIndex !== undefined) {
+								layer.close(msgIndex);
+							}
+						},
+						success: function (res) {
+							//此处演示关闭
+							setTimeout(function () {
+								layer.closeAll('loading');
+							}, 1000);
+							// 显示录音结束提示
+							layer.msg('录音结束', {
+								icon: 1,
+								shade: 0.01,
+								time: 2000 // 2秒后自动关闭
+							});
+						}
+					})
+
+
+			}
+		}
+	</script>
+	<style>
+		/* actGotop */
+		/* .actGotop{position:fixed;_position:absolute;bottom:100px;right:50px;width:150px;height:195px;display:none;}
+		.actGotop a,.actGotop a:link{width:150px;height:195px;display:inline-block;background:url(static/images/blog7year_gotop.png) no-repeat;_background:url(images/blog7year_gotop.gif) no-repeat;outline:none;}
+		.actGotop a:hover{background:url(static/images/blog7year_gotopd.gif) no-repeat;outline:none;} */
+		.actGotop {
+			position: fixed;
+			_position: absolute;
+			bottom: 100px;
+			right: 50px;
+			width: 150px;
+			height: 195px;
+			background-size: 90px 117px !important;
+			display: none;
+		}
+
+		.actGotop a:hover {
+			background: url(../static/image/blog7year_gotopd.gif) no-repeat !important;
+			outline: none;
+		}
+	</style>
+</body>
+
+</html>

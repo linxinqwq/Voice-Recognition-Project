@@ -1,0 +1,263 @@
+.box {
+  /* width: 900px;/ */
+  height: 100%;
+  padding: 20px;
+  background: #f9faff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  width: 58%;
+  height: 100%;
+}
+
+.left-box {
+  background: #fff;
+  height: calc(100% - 60px);
+  padding: 10px;
+  position: relative;
+}
+
+.right {
+  width: 40%;
+  height: 100%;
+}
+
+.right-box {
+  background: #fff;
+  height: calc(100% - 60px);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.language-label {
+  display: flex;
+  line-height: 28px;
+  color: #2277e6;
+  font-size: 14px;
+  align-items: center;
+}
+
+.language-span {
+  padding: 0px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.language-select {
+  background-color: #187cff;
+  color: #fff;
+}
+
+.language-image-box {
+  position: absolute;
+  bottom: 15px;
+  width: 530px;
+}
+
+.language-image-box .taste-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.language-image-box .taste-content .ready-button {
+  margin: 0 auto;
+  height: 40px;
+  width: 160px;
+  font-size: 16px;
+  letter-spacing: 6px;
+}
+
+.language-image-box .taste-content .taste-button {
+  background: #187cff;
+  border: 1px solid;
+  border-color: #478eea;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.language-image-box .language-p {
+  line-height: 20px;
+  font-size: 10px;
+  width: 430px;
+  margin: 0px auto;
+}
+
+.time-box {
+  display: flex;
+  width: 480px;
+  margin-left: 30px;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.time-box .start-taste-line {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.time-box .start-taste-line hr {
+  background-color: #187cff;
+  width: 3px;
+  height: 10px;
+  margin: 0 5px;
+  display: inline-block;
+  border: none;
+}
+
+.time-box .start-taste-line .hr1 {
+  animation-delay: -1s;
+  height: 10px;
+}
+
+.time-box .start-taste-line .hr2 {
+  animation-delay: -0.9s;
+  height: 15px;
+}
+
+.time-box .start-taste-line .hr3 {
+  animation-delay: -0.8s;
+  height: 20px;
+}
+
+.time-box .start-taste-line .hr4 {
+  animation-delay: -0.7s;
+  height: 25px;
+}
+
+.time-box .start-taste-line .hr5 {
+  animation-delay: -0.6s;
+  height: 30px;
+}
+
+.time-box .start-taste-line .hr6 {
+  animation-delay: -0.5s;
+  height: 25px;
+}
+
+.time-box .start-taste-line .hr7 {
+  animation-delay: -0.4s;
+  height: 20px;
+}
+
+.time-box .start-taste-line .hr8 {
+  animation-delay: -0.3s;
+  height: 15px;
+}
+
+.time-box .start-taste-line .hr9 {
+  animation-delay: -0.2s;
+  height: 10px;
+}
+
+.time-box .start-taste-line hr {
+  background-color: #187cff;
+  width: 2px;
+  height: 10px;
+  margin: 0 5px;
+  display: inline-block;
+  border: none;
+  animation: note 0.3s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes note {
+  0% {
+    transform: scale(0.5);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(0.5);
+  }
+}
+
+#record {
+  margin: 0px 0px 0px 12px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+  height: 36px;
+  background-color: #0081FF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 45px;
+}
+
+#record span {
+  width: 100px;
+  font-size: 14px;
+  line-height: 20px;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  margin-left: 0px;
+}
+
+.btn-bottom {
+  width: 100%;
+  height: 40px;
+  background: #F0F2F5;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* actGotop */
+.actGotop {
+  position: fixed;
+  _position: absolute;
+  bottom: 100px;
+  right: 50px;
+  width: 150px;
+  height: 195px;
+  display: none;
+}
+
+.actGotop a:hover {
+  background: url(../images/blog7year_gotopd.gif) no-repeat;
+  outline: none;
+}
+
+#recogName1 {
+  font: 30px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+  text-align: center;
+}
+
+#recogName {
+  margin: auto;
+  margin-top: 60px;
+  color: rgb(58, 135, 173);
+  font-weight: bold;
+}
+
+.result-value {
+  font-size: 40px;
+}
